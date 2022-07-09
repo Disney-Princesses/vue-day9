@@ -4,6 +4,7 @@
     <router-link to="/music/musichome">音乐的主页</router-link>
     <router-link to="/music/chinamusic">国内的音乐</router-link>
     <router-link to="/music/othermusic">国外的音乐</router-link>
+    <router-link to="/music/contacts">Contacts</router-link>
     <router-view></router-view>
   </div>
 </template>

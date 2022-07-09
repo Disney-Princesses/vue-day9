@@ -13,6 +13,10 @@ import News from '@/views/News.vue'
 import MusicHome from '@/views/MusicHome.vue'
 import ChinaMusic from '@/views/ChinaMusic.vue'
 import OtherMusic from '@/views/OtherMusic.vue'
+import Contacts from '@/views/Contacts.vue'
+import AllContacts from '@/views/AllContacts.vue'
+import Alice from '@/views/Alice.vue'
+import Bob from '@/views/Bob.vue'
 
 const routes = [
   {
@@ -44,6 +48,10 @@ const routes = [
     component: Music,
     children: [
       {
+        path: '/music',
+        redirect: '/music/musichome'
+      },
+      {
         path: 'musichome',
         component: MusicHome
       },
@@ -55,6 +63,25 @@ const routes = [
         path: 'othermusic',
         component: OtherMusic
       },
+      {
+        path: 'contacts',
+        component: Contacts,
+        children: [
+          {
+            path: 'allcontacts',
+            component: AllContacts
+          },
+          {
+            path: 'alice',
+            component: Alice
+          },
+          {
+            path: 'bob',
+            component: Bob
+          }
+        ]
+      },
+      
     ]
   }
 ]
