@@ -21,7 +21,7 @@ export default {
   //     this.$router.push({
   //       // path: pathVal,
   //       name: nameVal,
-  // 传参
+  // // 传参
   // query:{
   //   title:'我是jqury原生跳转传参'
   // },
@@ -30,9 +30,9 @@ export default {
   //   title: "我是params原生跳转传参",
   // },
   // 链接上不显示
-  //       });
-  //     },
-  //   },
+    //     });
+    //   },
+    // },
 };
 </script>
 

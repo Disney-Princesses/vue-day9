@@ -18,7 +18,10 @@ import NotFound from '@/views/NotFound.vue'
 import home1 from '@/views/Second/home1'
 import home2 from '@/views/Second/home2'
 import home3 from '@/views/Second/home3'
-
+// 三级嵌套
+import Chilend1 from '@/views/Third/chilend1'
+import Chilend2 from '@/views/Third/chilend2'
+import Chilend3 from '@/views/Third/chilend3'
 // 路由规则
 const routes = [
   { path: '/', redirect: '/home' },
@@ -26,7 +29,13 @@ const routes = [
     path: '/home', component: Home, name: 'Home', children: [
       { path: '/home', redirect: 'home1' },
       { path: 'home1', component: home1 },
-      { path: 'home2', component: home2 },
+      {
+        path: 'home2', component: home2, children: [
+          { path: 'chilend1', component: Chilend1 },
+          { path: 'chilend2', component: Chilend2 },
+          { path: 'chilend3', component: Chilend3 }
+        ]
+      },
       { path: 'home3', component: home3 },
       { path: '*', component: NotFound }
 
@@ -45,15 +54,15 @@ const router = new VueRouter({
 })
 
 // 全局前置守卫
-const login = false  //未登录的状态
-router.beforeEach((to, from, next) => {
-  if (to.path == '/order' && !login) {
-    next(false)
-    alert('未登录')
-  } else {
-    next(true)
-  }
-})
+// const login = false  //未登录的状态
+// router.beforeEach((to, from, next) => {
+//   if (to.path == '/order' && !login) {
+//     next(false)
+//     alert('未登录')
+//   } else {
+//     next(true)
+//   }
+// })
 
 new Vue({
   router,

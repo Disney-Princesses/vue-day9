@@ -1,7 +1,6 @@
 <template>
   <div>
-    home1111
-
+    孙子1
   </div>
 </template>
 
