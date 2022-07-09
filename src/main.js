@@ -23,10 +23,10 @@ const routes = [
   { path: '/home', component: Home },
   {
     path: '/type', component: Type, children: [
-      { path: '/type', redirect: 'recommend' },
+      // { path: '/type', redirect: 'recommend' },
       {
         path: 'ranking', component: Ranking, children: [
-          { path: '/type/ranking', redirect: 'love' },
+          // { path: '/type/ranking', redirect: 'love' },
           { path: 'part', component: Part },
           { path: 'love', component: Love }
         ]
