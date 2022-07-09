@@ -8,6 +8,11 @@ import Home from '@/views/Home.vue'
 import Class from '@/views/Class.vue'
 import Order from '@/views/Order.vue'
 import My from '@/views/My.vue'
+import Music from '@/views/Music.vue'
+import News from '@/views/News.vue'
+import MusicHome from '@/views/MusicHome.vue'
+import ChinaMusic from '@/views/ChinaMusic.vue'
+import OtherMusic from '@/views/OtherMusic.vue'
 
 const routes = [
   {
@@ -30,6 +35,28 @@ const routes = [
     path: '/my',
     component: My
   },
+  {
+    path: '/news',
+    component: News
+  },
+  {
+    path: '/music',
+    component: Music,
+    children: [
+      {
+        path: 'musichome',
+        component: MusicHome
+      },
+      {
+        path: 'chinamusic',
+        component: ChinaMusic
+      },
+      {
+        path: 'othermusic',
+        component: OtherMusic
+      },
+    ]
+  }
 ]
 
 const router = new VueRouter({
