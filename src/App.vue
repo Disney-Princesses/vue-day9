@@ -1,49 +1,48 @@
 <template>
   <div>
-    <div class="footer_wrap">
-      <a href="#/home">首页</a>
-      <a href="#/type">分类</a>
-      <a href="#/make">订单</a>
-      <a href="#/mine">我的</a>
+    <div>
+      <h1>App组件</h1>
+      <a href="#/home">首页</a>&nbsp; <a href="#/movie">电影</a>&nbsp;
+      <a href="#/about">关于</a>&nbsp;
     </div>
-    <p id='p'>显示路由切换的页面</p>
-    <div class="top">
-      <router-view></router-view>
+    <div>
+      <component :is="comName"></component>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import MyHome from "@/components/MyHome.vue";
+import MyMovie from "@/components/MyMovie.vue";
+import MyAbout from "@/components/MyAbout.vue";
+export default {
+  data() {
+    return {
+      comName: "MyHome",
+    };
+  },
+  components: {
+    MyHome,
+    MyMovie,
+    MyAbout,
+  },
+  // 原理：在可以获取数据的时候就监听全局的hash
+  // onhashchange事件一旦hash值有变化就会触发该事件
+  // 判断hash值的不同设置要渲染的动态组件
+  created() {
+    window.onhashchange = () => {
+      switch (location.hash) {
+        case "#/home":
+          this.comName = "MyHome";
+          break;
+        case "#/movie":
+          this.comName = "MyMovie";
+          break;
+        case "#/about":
+          this.comName = "MyAbout";
+          break;
+      }
+    };
+  },
+};
 </script>
-
-<style scoped>
-.footer_wrap {
-  position: fixed;
-  left: 0;
-  top: 0;
-  display: flex;
-  width: 100%;
-  text-align: center;
-  background-color: #333;
-  color: #ccc;
-}
-.footer_wrap a {
-  flex: 1;
-  text-decoration: none;
-  padding: 20px 0;
-  line-height: 20px;
-  background-color: #333;
-  color: #ccc;
-  border: 1px solid black;
-}
-.footer_wrap a:hover {
-  background-color: #555;
-}
-.top {
-  padding-top: 0px;
-}
-#p{
-  margin-top:65px;
-}
-</style>
