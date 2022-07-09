@@ -14,14 +14,28 @@ import My from '@/views/my.vue';
 import Order from '@/views/order.vue'
 import Tag from '@/views/tag.vue'
 import NotFound from '@/views/NotFound.vue'
+// 二级嵌套的页面
+import home1 from '@/views/Second/home1'
+import home2 from '@/views/Second/home2'
+import home3 from '@/views/Second/home3'
 
 // 路由规则
 const routes = [
   { path: '/', redirect: '/home' },
-  { path: '/home', component: Home },
-  { path: '/my', component: My },
-  { path: '/order', component: Order },
-  { path: '/tag', component: Tag },
+  {
+    path: '/home', component: Home, name: 'Home', children: [
+      { path: '/home', redirect: 'home1' },
+      { path: 'home1', component: home1 },
+      { path: 'home2', component: home2 },
+      { path: 'home3', component: home3 },
+      { path: '*', component: NotFound }
+
+    ]
+  },
+  // { path: '/my/:title', component: My },
+  { path: '/my', component: My, name: 'My' },
+  { path: '/order', component: Order, name: 'Order' },
+  { path: '/tag', component: Tag, name: 'Tag' },
   { path: '*', component: NotFound }
 ]
 

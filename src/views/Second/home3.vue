@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1>我得主页页面</h1>
-    传参2：{{$route.params.title}}
+    home3333
   </div>
 </template>
 
