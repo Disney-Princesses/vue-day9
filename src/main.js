@@ -44,6 +44,17 @@ const router = new VueRouter({
   routes,
 })
 
+// 全局前置守卫
+const login = false  //未登录的状态
+router.beforeEach((to, from, next) => {
+  if (to.path == '/order' && !login) {
+    next(false)
+    alert('未登录')
+  } else {
+    next(true)
+  }
+})
+
 new Vue({
   router,
   render: h => h(App),
